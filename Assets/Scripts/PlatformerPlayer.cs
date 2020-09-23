@@ -6,8 +6,8 @@ public class PlatformerPlayer : MonoBehaviour
 {
     private float speed;
     private Rigidbody2D _body;
-    /*private Animator _anim;
-    private float jumpForce;
+    private Animator _anim;
+    /*private float jumpForce;
     private BoxCollider2D _box;*/
 
     public float Speed { get => speed; set => speed = 250.0f; }
@@ -16,8 +16,8 @@ public class PlatformerPlayer : MonoBehaviour
     void Start()
     {
         _body = GetComponent<Rigidbody2D>();
-       /* _anim = GetComponent<Animator>();
-        _box = GetComponent<BoxCollider2D>();*/
+       _anim = GetComponent<Animator>();
+       // _box = GetComponent<BoxCollider2D>();*
     }
 
     void Update()
@@ -41,12 +41,12 @@ public class PlatformerPlayer : MonoBehaviour
         if (grounded && Input.GetKeyDown(KeyCode.Space))
         {
             _body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }
+        }*/
 
         _anim.SetFloat("speed", Mathf.Abs(deltaX));
         if (!Mathf.Approximately(deltaX, 0))
         {
             transform.localScale = new Vector3(Mathf.Sign(deltaX), 1, 1);
-        }*/
+        }
     }
 }
