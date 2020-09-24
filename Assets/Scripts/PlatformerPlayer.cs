@@ -8,13 +8,13 @@ public class PlatformerPlayer : MonoBehaviour
     private Rigidbody2D _body;
     private Animator _anim;
     public float jumpForce=12.0f;
-    //private BoxCollider2D _box;
+    private BoxCollider2D _box;
 
     void Start()
     {
         _body = GetComponent<Rigidbody2D>();
        _anim = GetComponent<Animator>();
-       // _box = GetComponent<BoxCollider2D>();*
+       _box = GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -23,7 +23,7 @@ public class PlatformerPlayer : MonoBehaviour
         Vector2 movement = new Vector2(deltaX, _body.velocity.y);
         _body.velocity = movement;
 
-        /*Vector3 max = _box.bounds.max;
+        Vector3 max = _box.bounds.max;
         Vector3 min = _box.bounds.min;
         Vector2 corner1 = new Vector2(max.x, min.y - .1f);
         Vector2 corner2 = new Vector2(min.x, min.y - .2f);
@@ -33,9 +33,9 @@ public class PlatformerPlayer : MonoBehaviour
         if (hit != null)
         {
             grounded = true;
-        }*/
+        }
 
-        if (/*grounded &&*/ Input.GetKeyDown(KeyCode.Space))
+        if (grounded && Input.GetKeyDown(KeyCode.Space))
         {
             _body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
