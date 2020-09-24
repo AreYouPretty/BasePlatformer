@@ -7,8 +7,8 @@ public class PlatformerPlayer : MonoBehaviour
     private float speed=250.0f;
     private Rigidbody2D _body;
     private Animator _anim;
-    /*public float jumpForce=12.0f;
-    private BoxCollider2D _box;*/
+    public float jumpForce=12.0f;
+    //private BoxCollider2D _box;
 
     void Start()
     {
@@ -33,12 +33,12 @@ public class PlatformerPlayer : MonoBehaviour
         if (hit != null)
         {
             grounded = true;
-        }
+        }*/
 
-        if (grounded && Input.GetKeyDown(KeyCode.Space))
+        if (/*grounded &&*/ Input.GetKeyDown(KeyCode.Space))
         {
             _body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }*/
+        }
 
         _anim.SetFloat("speed", Mathf.Abs(deltaX));
         if (!Mathf.Approximately(deltaX, 0))
