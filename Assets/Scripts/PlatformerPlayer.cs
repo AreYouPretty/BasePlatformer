@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class PlatformerPlayer : MonoBehaviour
 {
-    private float speed;
+    private float speed=250.0f;
     private Rigidbody2D _body;
     private Animator _anim;
-    /*private float jumpForce;
+    /*public float jumpForce=12.0f;
     private BoxCollider2D _box;*/
-
-    public float Speed { get => speed; set => speed = 250.0f; }
-    //public float JumpForce { get => jumpForce; set => jumpForce = 12.0f; }
 
     void Start()
     {
@@ -22,7 +19,7 @@ public class PlatformerPlayer : MonoBehaviour
 
     void Update()
     {
-        float deltaX = Input.GetAxis("Horizontal") * Speed * Time.deltaTime;
+        float deltaX = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         Vector2 movement = new Vector2(deltaX, _body.velocity.y);
         _body.velocity = movement;
 
